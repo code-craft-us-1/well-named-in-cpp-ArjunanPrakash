@@ -1,7 +1,11 @@
 #include "ColorCoder.h"
-#include "ColorConstants.h"
+#include "ColorTypes.h"
 
 namespace TelCoColorCoder {
+
+    // Retrieve number of colors dynamically
+    constexpr int numberOfMajorColors = getNumberOfMajorColors();
+    constexpr int numberOfMinorColors = getNumberOfMinorColors();
 
     ColorPair ColorCoder::GetColorFromPairNumber(int pairNumber) {
         int zeroBasedPairNumber = pairNumber - 1;
