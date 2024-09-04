@@ -10,4 +10,4 @@ namespace TelCoColorCoder {
         return minorColor;
     }
 
-}
+} // namespace TelCoColorCoder

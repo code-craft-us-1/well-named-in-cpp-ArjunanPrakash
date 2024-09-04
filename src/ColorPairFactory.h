@@ -11,6 +11,6 @@ namespace TelCoColorCoder {
         static std::unique_ptr<ColorPair> createColorPair(MajorColor major, MinorColor minor);
     };
 
-}
+} // namespace TelCoColorCoder
 
 #endif // COLOR_PAIR_FACTORY_H

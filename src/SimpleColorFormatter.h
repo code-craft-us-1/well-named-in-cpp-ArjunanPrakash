@@ -2,7 +2,6 @@
 #define SIMPLE_COLOR_FORMATTER_H
 
 #include "IColorFormatter.h"
-#include "ColorConstants.h"
 
 namespace TelCoColorCoder {
 
@@ -11,6 +10,6 @@ namespace TelCoColorCoder {
         std::string formatColorPair(MajorColor major, MinorColor minor) const override;
     };
 
-}
+} // namespace TelCoColorCoder
 
 #endif // SIMPLE_COLOR_FORMATTER_H

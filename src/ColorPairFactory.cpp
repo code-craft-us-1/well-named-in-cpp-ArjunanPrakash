@@ -6,4 +6,4 @@ namespace TelCoColorCoder {
         return std::make_unique<ColorPair>(major, minor);
     }
 
-}
+} // namespace TelCoColorCoder
