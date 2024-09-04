@@ -9,11 +9,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install g++ (if needed)
-      run: sudo apt-get install g++-7
+    - name: Set up g++
+      uses: gcc-action/setup-gcc@v1
+      with:
+        gcc-version: '11' # Specify the version you need
 
     - name: build
-      run: g++-7 -std=c++17 -Wall -Wextra -I src -o testchecker src/*.cpp tests/*.cpp main/*.cpp
+      run: g++ -std=c++17 -Wall -Wextra -I src -o testchecker src/*.cpp tests/*.cpp main/*.cpp
       
     - name: run
       run: ./testchecker
