@@ -9,13 +9,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up g++
-      uses: gcc-action/setup-gcc@v1
-      with:
-        gcc-version: '11' # Specify the version you need
+    - name: Install g++
+      run: sudo apt-get update && sudo apt-get install -y g++
 
-    - name: build
+    - name: Verify g++ version
+      run: g++ --version
+
+    - name: Build
       run: g++ -std=c++17 -Wall -Wextra -I src -o testchecker src/*.cpp tests/*.cpp main/*.cpp
       
-    - name: run
+    - name: Run tests
       run: ./testchecker
