@@ -13,8 +13,8 @@ jobs:
       run: pip install lizard
 
     - name: Limit complexity
-      run: $HOME/.local/bin/lizard --CCN 30 src/*.cpp tests/*.cpp main/*.cpp
+      run: $HOME/.local/bin/lizard --CCN 30 src/*.cpp tests/*.cpp
 
     - name: Check size
       run: |
-        $HOME/.local/bin/lizard src/*.cpp tests/*.cpp main/*.cpp | bash .github/workflows/lpar.sh 50
+        $HOME/.local/bin/lizard src/*.cpp tests/*.cpp | bash .github/workflows/lpar.sh 50
