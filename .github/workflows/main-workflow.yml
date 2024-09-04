@@ -4,13 +4,12 @@ on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: build
-      run: g++ -Wall -Wextra -o testchecker *.cpp
+      run: g++ -Wall -Wextra -I src -o testchecker src/*.cpp tests/*.cpp main/*.cpp
       
-    - name: run
+    - name: run tests
       run: ./testchecker
