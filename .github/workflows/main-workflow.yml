@@ -8,8 +8,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: build
-      run: g++ -Wall -Wextra -I src -o testchecker src/*.cpp tests/*.cpp main/*.cpp
+      run: g++ -std=c++17 -Wall -Wextra -I src -o testchecker src/*.cpp tests/*.cpp main/*.cpp
       
-    - name: run tests
+    - name: run
       run: ./testchecker
