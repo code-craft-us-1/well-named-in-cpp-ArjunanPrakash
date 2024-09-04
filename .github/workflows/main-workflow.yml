@@ -9,8 +9,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Install g++ (if needed)
+      run: sudo apt-get install g++-7
+
     - name: build
-      run: g++ -std=c++17 -Wall -Wextra -I src -o testchecker src/*.cpp tests/*.cpp main/*.cpp
+      run: g++-7 -std=c++17 -Wall -Wextra -I src -o testchecker src/*.cpp tests/*.cpp main/*.cpp
       
     - name: run
       run: ./testchecker
