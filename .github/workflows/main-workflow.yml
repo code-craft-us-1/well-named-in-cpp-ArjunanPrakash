@@ -22,8 +22,10 @@ jobs:
       run: |
         # Compile and link the test executable only
         echo "Building test executable..."
-        g++ -std=c++17 -Wall -Wextra -I src -c src/*.cpp tests/Test.cpp
-        g++ -std=c++17 -Wall -Wextra -o testchecker src/*.o tests/Test.o
+        # Correct the file names in the build commands:
+        g++ -std=c++17 -Wall -Wextra -I src -c src/*.cpp tests/ColorCoderTest.cpp
+        g++ -std=c++17 -Wall -Wextra -o testchecker src/*.o tests/ColorCoderTest.o
+
         echo "Build completed successfully."
 
     - name: Run Tests

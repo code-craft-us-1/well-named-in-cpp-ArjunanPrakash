@@ -1,4 +1,4 @@
-#include "Test.h"
+#include "ColorCoderTest.h"
 
 int main() {
     using namespace TelCoColorCoder;

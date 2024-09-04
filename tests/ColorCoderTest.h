@@ -1,5 +1,5 @@
-#ifndef TEST_H
-#define TEST_H
+#ifndef COLOR_CODER_TEST_H
+#define COLOR_CODER_TEST_H
 
 #include <iostream>
 #include <cassert>
@@ -24,4 +24,4 @@ namespace TelCoColorCoder {
 
 }
 
-#endif // TEST_H
+#endif // COLOR_CODER_TEST_H

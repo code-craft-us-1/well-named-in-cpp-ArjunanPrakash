@@ -1,4 +1,4 @@
-name: Limit file size
+name: Limit File Size
 
 on: [push, pull_request]
 
@@ -7,14 +7,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: Install lizard
-      run: pip install lizard
+      - name: Install Lizard
+        run: pip install lizard
 
-    - name: Limit complexity
-      run: $HOME/.local/bin/lizard --CCN 30 src/*.cpp tests/*.cpp main/*.cpp
+      - name: Limit Complexity
+        run: |
+          # Check complexity of source and test files with a CCN limit of 30
+          $HOME/.local/bin/lizard --CCN 30 src/*.cpp tests/ColorCoderTest.cpp
 
-    - name: Check size
-      run: |
-        $HOME/.local/bin/lizard src/*.cpp tests/*.cpp main/*.cpp | bash .github/workflows/lpar.sh 50
+      - name: Check File Size
+        run: |
+          # Check the size of source and test files, with LOC limit enforced by lpar.sh
+          $HOME/.local/bin/lizard src/*.cpp tests/ColorCoderTest.cpp | bash .github/workflows/lpar.sh 50
