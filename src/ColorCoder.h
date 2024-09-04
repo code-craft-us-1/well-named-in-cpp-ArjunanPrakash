@@ -7,8 +7,8 @@ namespace TelCoColorCoder {
 
     class ColorCoder {
     public:
-        static constexpr ColorPair GetColorFromPairNumber(int pairNumber);
-        static constexpr int GetPairNumberFromColor(MajorColor major, MinorColor minor);
+        static ColorPair GetColorFromPairNumber(int pairNumber);
+        static int GetPairNumberFromColor(MajorColor major, MinorColor minor);
     };
 
 }
