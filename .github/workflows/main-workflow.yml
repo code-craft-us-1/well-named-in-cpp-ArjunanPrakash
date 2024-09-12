@@ -1,16 +1,36 @@
-name: Build and Run
+name: Build and Test
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: build
-      run: g++ -Wall -Wextra -o testchecker *.cpp
-      
-    - name: run
-      run: ./testchecker
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up GCC
+      uses: gcc-action/setup-gcc@v1
+      with:
+        gcc-version: 11
+
+    - name: Build Test Executable
+      run: |
+        # Compile and link the test executable only
+        echo "Building test executable..."
+        # Correct the file names in the build commands:
+        g++ -std=c++17 -Wall -Wextra -I src -c src/*.cpp tests/ColorCoderTest.cpp
+        g++ -std=c++17 -Wall -Wextra -o testchecker src/*.o tests/ColorCoderTest.o
+
+        echo "Build completed successfully."
+
+    - name: Run Tests
+      run: |
+        # Run the test executable to ensure tests pass
+        echo "Running tests..."
+        ./testchecker
+        echo "Tests completed successfully."
