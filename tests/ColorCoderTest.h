@@ -18,8 +18,28 @@ namespace TelCoColorCoder {
 
     void testPairToNumber(MajorColor major, MinorColor minor, int expectedPairNumber) {
         int pairNumber = ColorCoder::GetPairNumberFromColor(major, minor);
-        std::cout << "Got pair number " << pairNumber << std::endl;
+        SimpleColorFormatter formatter;
+        std::cout << "Got pair number " << pairNumber << " for "
+                  << formatter.formatColorPair(major, minor) << std::endl;
         assert(pairNumber == expectedPairNumber);
+    }
+
+    // New function to print the reference manual
+    void printReferenceManual() {
+        SimpleColorFormatter formatter;
+        constexpr int numberOfMajorColors = getNumberOfMajorColors();
+        constexpr int numberOfMinorColors = getNumberOfMinorColors();
+
+        std::cout << "Color Code Reference Manual:\n";
+        for (int major = 0; major < numberOfMajorColors; ++major) {
+            for (int minor = 0; minor < numberOfMinorColors; ++minor) {
+                MajorColor majorColor = static_cast<MajorColor>(major);
+                MinorColor minorColor = static_cast<MinorColor>(minor);
+                int pairNumber = ColorCoder::GetPairNumberFromColor(majorColor, minorColor);
+                std::cout << "Pair Number: " << pairNumber << " -> "
+                          << formatter.formatColorPair(majorColor, minorColor) << std::endl;
+            }
+        }
     }
 
 }
