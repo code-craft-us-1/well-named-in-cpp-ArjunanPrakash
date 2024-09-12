@@ -12,5 +12,8 @@ int main() {
 
     std::cout << "All tests passed successfully!" << std::endl;
 
+    // Print the color coding reference manual
+    printReferenceManual();
+
     return 0;
 }
